@@ -1,6 +1,9 @@
-"""Pluggable adapter protocol — define your own agent adapter."""
+"""Pluggable adapter protocol — Base class and public API.
 
-from .base import AgentAdapter
-from .__init__ import ADAPTERS, get_adapter
+Import from here to define custom adapters, or use the convenience
+``get_adapter()`` from ``contextflow.adapters``.
+"""
 
-__all__ = ["AgentAdapter", "ADAPTERS", "get_adapter"]
+from ..core import AgentAdapter
+
+__all__ = ["AgentAdapter"]

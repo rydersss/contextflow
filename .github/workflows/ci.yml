@@ -30,4 +30,4 @@ jobs:
         run: pytest -v --tb=short
 
       - name: Type check
-        run: pip install mypy && mypy src/contextflow --ignore-missing-imports
+        run: pip install mypy && mypy src/contextflow --explicit-package-bases --ignore-missing-imports
