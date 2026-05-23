@@ -87,7 +87,9 @@ class CursorAdapter(AgentAdapter):
 
 
 # Registry
-ADAPTERS = {
+from typing import Dict, Type
+
+ADAPTERS: Dict[str, Type[AgentAdapter]] = {
     "claude-code": ClaudeCodeAdapter,
     "hermes": HermesAdapter,
     "cursor": CursorAdapter,
@@ -99,4 +101,4 @@ def get_adapter(name: str) -> AgentAdapter:
     name = name.lower().strip()
     if name not in ADAPTERS:
         raise ValueError(f"Unknown adapter: {name}. Available: {list(ADAPTERS.keys())}")
-    return ADAPTERS[name]()
+    return ADAPTERS[name]()  # type: ignore[abstract]

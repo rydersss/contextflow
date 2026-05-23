@@ -10,7 +10,7 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass
 from typing import Optional, Protocol
 
-from ..core.compressor import Message, CompressionResult, compress
+from .compressor import Message, CompressionResult, compress
 
 
 class AgentAdapter(ABC):
@@ -38,7 +38,7 @@ class AgentAdapter(ABC):
 
     def estimate_tokens(self, text: str) -> int:
         """Override for agent-specific tokenizer."""
-        from ..core.compressor import estimate_tokens
+        from .compressor import estimate_tokens
 
         return estimate_tokens(text)
 
